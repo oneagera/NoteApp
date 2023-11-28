@@ -19,6 +19,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Sort
+import androidx.compose.material.icons.materialIcon
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -81,7 +83,7 @@ fun NotesScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "Your note",
+                    text = "Notes",
                     style = MaterialTheme.typography.headlineMedium
                 )
                 IconButton(
@@ -90,8 +92,7 @@ fun NotesScreen(
                     }
                 ) {
                     Icon(
-                        painter = painterResource(R.drawable.sort_icon),
-                        contentDescription = "Sort"
+                        imageVector = Icons.Default.Sort, contentDescription = "Sort"
                     )
                 }
             }
@@ -121,7 +122,7 @@ fun NotesScreen(
                             .clickable {
                                 navController.navigate(
                                     Screen.AddEditNoteScreen.route +
-                                    "?noteId=${note.id}&noteColor=${note.color}"
+                                            "?noteId=${note.id}&noteColor=${note.color}"
                                 )
 
                             },
